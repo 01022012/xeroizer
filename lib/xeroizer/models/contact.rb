@@ -36,12 +36,12 @@ module Xeroizer
       string        :skype_user_name
       string        :contact_groups
       string        :default_currency
-      string        :purchases_default_account_code 
-      string        :sales_default_account_code 
+      string        :purchases_default_account_code
+      string        :sales_default_account_code
       datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       boolean       :is_supplier
       boolean       :is_customer
-      
+
       has_many  :addresses, :list_complete => true
       has_many  :phones, :list_complete => true
       has_many  :contact_groups
@@ -50,7 +50,7 @@ module Xeroizer
       has_many :sales_tracking_categories, :model_name => 'ContactSalesTrackingCategory'
       has_many :purchases_tracking_categories, :model_name => 'ContactPurchasesTrackingCategory'
 
-      validates_presence_of :name
+      # validates_presence_of :name
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true
 
       def email_address?
